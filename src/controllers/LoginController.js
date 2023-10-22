@@ -4,7 +4,7 @@ import { Swal } from "sweetalert2";
 export const verificar = async (datos) => {
   try {
     const response = await Axios.post(
-      "https://edificiokandc-back.onrender.com/login/credenciales",
+      "https://edificiokandc-back.up.railway.app/login/credenciales",
       {
         NombreUsuario: datos.nombreUsuario,
         Contraseña: datos.contraseña,
