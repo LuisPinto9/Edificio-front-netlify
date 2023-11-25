@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 export const add = async (datos) => {
   try {
     await Axios.post(
-      "https://edificiokandc-back.up.railway.app/user/create",
+      "https://edificio-back-vercel.vercel.app/user/create",
       {
         IDUsuario: datos.IDUsuario,
         Nombre: datos.Nombre,
@@ -45,7 +45,7 @@ export const add = async (datos) => {
 export const update = async (datos) => {
   try {
     await Axios.put(
-      "https://edificiokandc-back.up.railway.app/user/update",
+      "https://edificio-back-vercel.vercel.app/user/update",
       {
         IDUsuario: datos.IDUsuario,
         Nombre: datos.Nombre,
@@ -99,7 +99,7 @@ export const eliminar = async ({ val, getArrendatarios }) => {
       confirmButtonText: "Sí, eliminar",
     });
     if (result.isConfirmed) {
-      await Axios.delete(`https://edificiokandc-back.up.railway.app/user/delete/${val.id}`, {
+      await Axios.delete(`https://edificio-back-vercel.vercel.app/user/delete/${val.id}`, {
         headers: {
           Authorization: localStorage.getItem("auth"),
         },
@@ -130,7 +130,7 @@ export const eliminar = async ({ val, getArrendatarios }) => {
 /* traer la información de los arrendatarios */
 export const arrendatarios = async () => {
   try {
-    const response = await Axios.get("https://edificiokandc-back.up.railway.app/user/get-users", {
+    const response = await Axios.get("https://edificio-back-vercel.vercel.app/user/get-users", {
       headers: {
         Authorization: localStorage.getItem("auth"),
       },
@@ -151,7 +151,7 @@ export const arrendatarios = async () => {
 export const buscarUsuario = async (idBuscar) => {
   try {
     const response = await Axios.get(
-      `https://edificiokandc-back.up.railway.app/user/find-users/${idBuscar}`,
+      `https://edificio-back-vercel.vercel.app/user/find-users/${idBuscar}`,
       {
         headers: {
           Authorization: localStorage.getItem("auth"),
@@ -174,7 +174,7 @@ export const buscarUsuario = async (idBuscar) => {
 export const buscarUsuarioId = async (idBuscar) => {
   try {
     const response = await Axios.get(
-      `https://edificiokandc-back.up.railway.app/user/find-user-id/${idBuscar}`,
+      `https://edificio-back-vercel.vercel.app/user/find-user-id/${idBuscar}`,
       {
         headers: {
           Authorization: localStorage.getItem("auth"),

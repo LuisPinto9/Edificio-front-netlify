@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 export const addEvidencia = async (datos, file, getComponentesEvidencias) => {
   try {
     await Axios.post(
-      "https://edificiokandc-back.up.railway.app/componentes-evidencias/create",
+      "https://edificio-back-vercel.vercel.app/componentes-evidencias/create",
 
       {
         id: datos.id,
@@ -47,7 +47,7 @@ const addFile = async (file) => {
     if (file) {
       const formData = new FormData();
       formData.append("image", file);
-      await Axios.post("https://edificiokandc-back.up.railway.app/file", formData, {
+      await Axios.post("https://edificio-back-vercel.vercel.app/file", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -65,7 +65,7 @@ export const updateEvidencia = async (
 ) => {
   try {
     await Axios.put(
-      "https://edificiokandc-back.up.railway.app/componentes-evidencias/update",
+      "https://edificio-back-vercel.vercel.app/componentes-evidencias/update",
       {
         id: datos.id,
         nombre: datos.nombre,
@@ -107,7 +107,7 @@ const updateFile = async (file, nombre) => {
       const formData = new FormData();
       formData.append("image", file);
       await Axios.post(
-        `https://edificiokandc-back.up.railway.app/update-file/${nombre}`,
+        `https://edificio-back-vercel.vercel.app/update-file/${nombre}`,
         formData,
         {
           headers: {
@@ -135,7 +135,7 @@ export const eliminarEvidencia = async ({ val, getComponentesEvidencias }) => {
     });
     if (result.isConfirmed) {
       await Axios.delete(
-        `https://edificiokandc-back.up.railway.app/componentes-evidencias/delete/${val.id}`,
+        `https://edificio-back-vercel.vercel.app/componentes-evidencias/delete/${val.id}`,
         {
           headers: {
             Authorization: localStorage.getItem("auth"),
@@ -168,7 +168,7 @@ export const eliminarEvidencia = async ({ val, getComponentesEvidencias }) => {
 
 const deleteFile = async (nombre) => {
   try {
-    await Axios.delete(`https://edificiokandc-back.up.railway.app/delete-file/${nombre}`);
+    await Axios.delete(`https://edificio-back-vercel.vercel.app/delete-file/${nombre}`);
   } catch (error) {}
 };
 
@@ -176,7 +176,7 @@ const deleteFile = async (nombre) => {
 export const componentesEvidencia = async () => {
   try {
     const response = await Axios.get(
-      "https://edificiokandc-back.up.railway.app/componentes-evidencias/get-evidencias",
+      "https://edificio-back-vercel.vercel.app/componentes-evidencias/get-evidencias",
       {
         headers: {
           Authorization: localStorage.getItem("auth"),
@@ -200,7 +200,7 @@ export const componentesEvidencia = async () => {
 export const buscarEvideciaComponente = async (idBuscar) => {
   try {
     const response = await Axios.get(
-      `https://edificiokandc-back.up.railway.app/componentes-evidencias/find-evidencias/${idBuscar}`,
+      `https://edificio-back-vercel.vercel.app/componentes-evidencias/find-evidencias/${idBuscar}`,
       {
         headers: {
           Authorization: localStorage.getItem("auth"),
@@ -222,7 +222,7 @@ export const buscarEvideciaComponente = async (idBuscar) => {
 export const getEvidenciaImage = async (nombre) => {
   try {
     const response = await Axios.get(
-      `https://edificiokandc-back.up.railway.app/get-file/${nombre}`,
+      `https://edificio-back-vercel.vercel.app/get-file/${nombre}`,
       {
         responseType: "arraybuffer", // Esto indica a Axios que debe esperar una respuesta en formato binario
       }

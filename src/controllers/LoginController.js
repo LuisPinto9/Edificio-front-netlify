@@ -4,7 +4,7 @@ import { Swal } from "sweetalert2";
 export const verificar = async (datos) => {
   try {
     const response = await Axios.post(
-      "https://edificiokandc-back.up.railway.app/login/credenciales",
+      "https://edificio-back-vercel.vercel.app/login/credenciales",
       {
         NombreUsuario: datos.nombreUsuario,
         Contraseña: datos.contraseña,

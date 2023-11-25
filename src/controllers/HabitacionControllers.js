@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 export const add = async (datos) => {
   try {
     await Axios.post(
-      "https://edificiokandc-back.up.railway.app/habitaciones/create",
+      "https://edificio-back-vercel.vercel.app/habitaciones/create",
       {
         Id: datos.Id,
         Nombre: datos.Nombre,
@@ -43,7 +43,7 @@ export const add = async (datos) => {
 export const update = async (datos) => {
   try {
     await Axios.put(
-      "https://edificiokandc-back.up.railway.app/habitaciones/update",
+      "https://edificio-back-vercel.vercel.app/habitaciones/update",
       {
         Id: datos.Id,
         Nombre: datos.Nombre,
@@ -96,7 +96,7 @@ export const eliminar = async ({ val, getHabitaciones }) => {
 
     if (result.isConfirmed) {
       await Axios.delete(
-        `https://edificiokandc-back.up.railway.app/habitaciones/delete/${val.id}`,
+        `https://edificio-back-vercel.vercel.app/habitaciones/delete/${val.id}`,
         {
           headers: {
             Authorization: localStorage.getItem("auth"),
@@ -131,7 +131,7 @@ export const eliminar = async ({ val, getHabitaciones }) => {
 export const habitaciones = async () => {
   try {
     const response = await Axios.get(
-      "https://edificiokandc-back.up.railway.app/habitaciones/get-habitaciones",
+      "https://edificio-back-vercel.vercel.app/habitaciones/get-habitaciones",
       {
         headers: {
           Authorization: localStorage.getItem("auth"),
@@ -154,7 +154,7 @@ export const habitaciones = async () => {
 export const buscarHabitacion = async (nombreBuscar) => {
   try {
     const response = await Axios.get(
-      `https://edificiokandc-back.up.railway.app/habitaciones/find-habitacion/${nombreBuscar}`,
+      `https://edificio-back-vercel.vercel.app/habitaciones/find-habitacion/${nombreBuscar}`,
       {
         headers: {
           Authorization: localStorage.getItem("auth"),
